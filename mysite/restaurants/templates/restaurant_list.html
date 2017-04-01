@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		餐厅列表
+	</title>
+</head>
+<body>
+    
+	<form action="/menu/" method="get">
+	<table>
+		<tr>
+			<th> 选取 </th>
+			<th> 店名 </th>
+			<th> 电话 </th>
+			<th> 地址 </th>
+			<th> 评价 </th>
+		</tr>
+		{% for r in restaurants %}
+		<tr>
+			<td> <input type="radio" name="id" value = "{{r.id}}"></td>       
+			<td> {{r.name}} </td>-
+			<td> {{r.phone}} </td>
+			<td> {{r.address}} </td>
+			<td> <input type="submit" name="commnet" value = {{ r.id }}></td>
+		</tr>
+		{% endfor %}
+		<input type="submit" name="观看menu" value="LOOK">
+
+	</table> 
+	</form>
+
+     
+
+<!--   <table>
+		<tr>
+			<th> 选取 </th>
+			<th> 店名 </th>
+			<th> 电话 </th>
+			<th> 地址 </th>
+			<th> 评价 </th>
+		</tr>
+			{% for r in restaurants %}
+		<tr>
+			<td> <a href="/menu/{{r.id}}/">menu </a> </td>      
+			<td> {{r.name}} </td>
+			<td> {{r.phone}} </td>
+			<td> {{r.address}} </td>
+	    	  
+		</tr>
+			{% endfor %}
+
+	</table> 
+-- >
+</body>
+</html>

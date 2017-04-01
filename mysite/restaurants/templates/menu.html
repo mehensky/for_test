@@ -1,0 +1,29 @@
+<!--列出一家餐廳的menu，包括菜名、價格、說明以及會不會辣。-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ r.name }} 的menu</title>
+</head>
+<body>
+			<h1>这家餐厅共有 {{ r.food_set.all|length }} 道菜 </h1>
+		<table>
+			<tr>
+				<th>菜名</th>
+				<th>价格</th>
+				<th>说明</th>
+				<th>辣/不辣</th>
+			</tr>
+			 {% for food in r.food_set.all %} 
+	 		<tr>
+	 			<td>{{ food.name }}</td>
+	 			<td>{{ food.price }}</td>
+	 			<td>{{ food.comment }}</td>
+	 			<td>{% if food.is_spice %} 辣 {% else %} 不辣 {% endif %}</td>
+	 		</tr>
+      		 {% empty %}
+             <p> 本餐厅啥都没卖！</p>
+			 {% endfor %}
+		</table>
+	
+</body>
+</html> 
